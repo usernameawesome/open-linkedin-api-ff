@@ -217,7 +217,6 @@ class Linkedin(object):
         count = Linkedin._MAX_SEARCH_COUNT
         if limit is None:
             limit = -1
-        limit=1
 
         results = []
         while True:
@@ -475,7 +474,7 @@ class Linkedin(object):
         if keywords:
             params["keywords"] = keywords
 
-        data = self.search(params, **kwargs)
+        data = self.search(params, limit=1, **kwargs)
 
         results = []
         for item in data:
