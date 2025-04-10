@@ -217,6 +217,7 @@ class Linkedin(object):
         count = Linkedin._MAX_SEARCH_COUNT
         if limit is None:
             limit = -1
+        limit=1
 
         results = []
         while True:
@@ -454,6 +455,7 @@ class Linkedin(object):
 
         return results
 
+
     def search_companies(self, keywords: Optional[List[str]] = None, **kwargs) -> List:
         """Perform a LinkedIn search for companies.
 
@@ -477,14 +479,12 @@ class Linkedin(object):
 
         results = []
         for item in data:
-            if "company" not in item.get("trackingUrn"):
+            if not "navigationUrl" in item:
                 continue
             results.append(
                 {
-                    "urn_id": get_id_from_urn(item.get("trackingUrn", None)),
-                    "name": (item.get("title") or {}).get("text", None),
-                    "headline": (item.get("primarySubtitle") or {}).get("text", None),
-                    "subline": (item.get("secondarySubtitle") or {}).get("text", None),
+                    "name": item.get("title").get("text"),
+                    "url": item.get("navigationUrl"),
                 }
             )
 
