@@ -1,7 +1,7 @@
 import os
 import pickle
 import time
-import open_linkedin_api.settings as settings
+import open_linkedin_api_ff.settings as settings
 from requests.cookies import RequestsCookieJar
 from typing import Optional
 

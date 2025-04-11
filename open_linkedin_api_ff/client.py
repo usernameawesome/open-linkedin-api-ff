@@ -1,6 +1,6 @@
 import requests
 import logging
-from open_linkedin_api.cookie_repository import CookieRepository
+from open_linkedin_api_ff.cookie_repository import CookieRepository
 from bs4 import BeautifulSoup, Tag
 from requests.cookies import RequestsCookieJar
 import json
