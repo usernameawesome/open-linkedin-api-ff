@@ -1171,6 +1171,7 @@ class Linkedin(object):
         }
 
         res = self._fetch(f"/organization/companies", params=params)
+        print(res, flush=True)
 
         data = res.json()
 
